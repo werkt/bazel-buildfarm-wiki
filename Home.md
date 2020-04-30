@@ -1,58 +1,14 @@
 # User Guide
 
-Bazel Buildfarm is a service software stack which presents an implementation of the Remote Execution API. This means it can be used by any client of that API to retain content (ContentAddressableStorage), cache ActionResults by a key (ActionCache), and execute actions asynchronously (Execution).
+Bazel Buildfarm is a service software stack which presents an implementation of the [Remote Execution API](https://github.com/bazelbuild/remote-apis). This means it can be used by any client of that API to retain content ([[ContentAddressableStorage]]), cache ActionResults by a key ([[ActionCache]]), and execute actions asynchronously ([[Execution]]).
 
-Buildfarm uses modular instances, where an instance is associated with one concrete type that governs its behavior and functionality. The Remote Execution API uses instance names to identify every request made, which allows Buildfarm instances to represent partitions of resources. One server may support many different instances, each with their own name, and each instance will have its own type.
+This documentation is intended as a comprehensive and ongoing description of its architecture, features, functionality, and operation, as well as a guide to a smoothly running install of the software. Familiarity with the Remote Execution API is expected, and references will be provided to it as needed.
 
-# Quick Start
+_This wiki is a work in progress, and parts of it may still be under construction._
 
-This section will quickly describe how to use buildfarm for remote execution with a minimal configuration - a single memory instance, with a host-colocated worker that can execute a single process at a time - via a bazel invocation on a small workspace.
+## [[Architecture]]
 
-Let's start with a bazel WORKSPACE with a single file to compile into an executable, in a directory named `my_main`:
-
-`main.cc`:
-```
-#include <iostream>
-
-int
-main( int argc, char *argv[] )
-{
-  std::cout << "Hello, World!" << std::endl;
-}
-```
-
-`BUILD`:
-```
-cc_binary(
-    name = "main",
-    srcs = ["main.cc"],
-)
-```
-
-And an empty WORKSPACE file.
-
-As a test, verify that `bazel run :main` builds your main program and runs it, and prints `Hello, World!`. This will ensure that you have properly installed bazel and a C++ compiler, and have a working target before moving on to remote execution.
-
-This tutorial assumes that you have a bazel binary in your path and you are in the root of your buildfarm clone/release, and has been tested to work with bash on linux.
-
-From a single terminal, run `bazel run src/main/java/build/buildfarm:buildfarm-server $PWD/examples/server.config.example`
-
-From another terminal, run `bazel run src/main/java/build/buildfarm:buildfarm-operationqueue-worker $PWD/examples/worker.config.example`
-
-From a third terminal, in your `my_main` directory, run `bazel run --remote_executor=localhost:8980 :main`
-
-If your build once again printed build statistics and `Hello, World!`, congratulations, you just build something through remote execution!
-
-## General Features
-
-Buildfarm has endeavored to support a wide variety of features implied or mandated by the Remote Execution API, including those currently not in use or worked around by bazel or other clients.
-
-Most notably, buildfarm has universal support for:
-
-* configurable instances with specific instance types
-* progressive and flow controlled CAS reads and writes
-* pluggable external CAS endpoints
-* RequestMetadata behavior attribution
+## [[General Features]]
 
 ## Instance Types
 

@@ -6,7 +6,7 @@ A CAS supports several methods of retrieving and inserting entries, as well as s
 
 Functionally within the REAPI, the CAS is the communication plane for Action inputs and outputs, and is used to retain other contents by existing clients, including bazel, like build event information.
 
-# Actions
+# Methods
 
 ## Reads
 

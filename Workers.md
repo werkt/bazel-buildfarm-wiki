@@ -55,7 +55,7 @@ This means that an action's entire input directory must be available on a filesy
 
 There are two implementations of Execution Filesystem in Buildfarm. Choosing either a `filesystem` or `fuse` `cas` type in the worker config as the first `cas` entry will choose the _CASFileCache_ or _FuseCAS_ implementations, respectively.
 
-# CASFileCache/CFCExecFilesystem
+## CASFileCache/CFCExecFilesystem
 
 The CASFileCache provides an Exec Filesystem via CFCExecFilesystem. The (CASFileCache)'s retention of paths is used to reflect individual files, with these paths hard-linked in CFCExecFilesystem under representative directories of the input root to signify usage. The CASFileCache directory retention system is also used to provide a configurable utilization of entire directory trees as a symlink, which was a heuristic optimization applied when substantial cost was observed setting up static trees of input links for operations compared to their execution time. `link_input_directories` in the common Worker configuration will enable this heuristic.
 Outputs of actions are physically streamed into CAS writes when they are observed after an action execution.
@@ -64,7 +64,7 @@ The CASFileCache's persistence in the filesystem and the availability of common 
 
 There are plans to improve CASFileCache that will be reflected in improved performance and memory footprint for the features used by CFCExecFilesystem.
 
-# Fuse
+## Fuse
 
 A fuse implementation to provide Roots exists and is specifiable as well. This was an experiment to discover the capacity of a fuse to represent Roots transparently with a ContentAddressableStorage backing, and has not been fully vetted to provide the same reliability as the CFCExecFilesystem. This system is capable of blinking entire trees into existence with ease, as well as supporting write-throughs for outputs suitable for general purpose execution. Some problems with this type were initially observed and never completely resolved, including guaranteed resource release on Root destruction. This implementation is also only built to be backed by its own Memory CAS, with no general purpose CAS support added due to the difficulty of supporting a transaction model for an input tree to enforce the contract of availability. It remains unoptimized yet functional, but difficulties with integrating libfuse 3 into the bazel build, as well as time constraints, have kept it from being scaled and expanded as the rest of Buildfarm has grown.
 

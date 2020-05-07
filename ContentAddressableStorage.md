@@ -41,3 +41,6 @@ A sharded CAS leverages multiple Worker CAS retention and proxies requests to ho
 ## Worker CAS
 
 Working hand in hand with the Shard CAS implementation, the Worker CAS leverages a requisite on-disk store to provide a CAS from its CASFileCache. Since the worker maintains a large cache of inputs for use with actions, this CAS is routinely populated from downloads due to operation input fetches in addition to uploads from the Shard frontend.
+
+### CasFileCache
+The worker's CAS file cache uses persistent disk storage.  It's implementation stresses particular properties of the filesystem which not all filesystem format's support.  ext4 is not supported.  A format that is supported is xfs.  The layout of the files are ordered such that file content remains on the root of the cache directory, while folders contain hard links back to these rooted files.  This avoids unnecessary duplication of files.

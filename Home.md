@@ -6,6 +6,7 @@ This documentation is intended as a comprehensive and ongoing description of its
 
 _This wiki is a work in progress, and parts of it may still be under construction._
 
+## [[Quick Start]]
 ## [[Architecture]]
 ## [[General Features]]
 ## [[Instance Types]]

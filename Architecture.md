@@ -10,4 +10,20 @@ Buildfarm uses modular instances, where an instance is associated with one concr
 
 # Typical Deployment
 
-Modules and their Function
+Typical Buildfarm cluster deployment consists of the following:
+
+## Workers
+
+Workers are deployed as an autoscaling group in the cloud environment. This group should scale based on the load. This will require monitoring and alerting to be setup, which will trigger the scaling events.
+
+## Schedulers
+
+Schedulers are deployed as an autoscaling group in the cloud environment. This group should scale based on the load. This will require monitoring and alerting to be setup, which will trigger the scaling events.
+
+## Clustered Redis
+
+Clustered Redis should be sized based on the expected load. Typically, no replication is necessary for Buildfarm use as the loss of data stored is not catastrophic.
+
+## Schedulers Network Load Balancer
+
+A network load balancer is set up to target the Schedulers autoscaling group. This will be the primary Buildfarm endpoint.

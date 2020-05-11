@@ -10,7 +10,7 @@ Buildfarm uses modular instances, where an instance is associated with one concr
 
 # Typical Deployment
 
-Typical Buildfarm cluster deployment consists of the following:
+![Buildfarm Architecture Diagram](https://github.com/bazelbuild/bazel-buildfarm/wiki/images/Architecture-Aws.png)
 
 ## Workers
 

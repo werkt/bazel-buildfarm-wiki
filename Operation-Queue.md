@@ -49,6 +49,9 @@ redis_shard_backplane_config: {
 }
 ```
 
+Note that in both of these examples we specify the CPU queue last.  
+An operation queue consists of multiple provisioned queues in which the order dictates the eligibility and placement of operations.  Therefore, it is recommended to have a final provision queue with no actual platform requirements.  This will ensure that all operations are eligible for the final queue.
+
 ### Tagging a Worker for GPU work
 ```
 platform: {
@@ -57,3 +60,6 @@ platform: {
     }
 }
 ```
+
+### Default Configuration
+If your configuration file does not specify any provisioned queues, buildfarm will automatically provide a default queue will full eligibility on all operations. This will ensure the expected behavior for the paradigm in which all work is put on the same queue.

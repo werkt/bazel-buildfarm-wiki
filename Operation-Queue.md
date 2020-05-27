@@ -10,5 +10,41 @@ To solve this, the operation queue can be customized to divide work into separat
 Provision queues are intended to represent particular operations that should only be processed by particular workers. An example use case for this would be to have two dedicated provision queues for CPU and GPU operations. CPU/GPU requirements would be determined through the remote api's command platform properties. We designate provision queues to have a set of "required provisions" (which match the platform properties). This allows the scheduler to distribute operations by their properties and allows workers to dequeue from particular queues.
 
 ### Server Example
+In this example the scheduler is configured to separate CPU/GPU work:
+```
+redis_shard_backplane_config: {
+  provisioned_queues: {
+    queue: {
+      name: "gpu_queue"
+      platform: {
+        property: {
+          name: "gpu_tag"
+        }
+      }
+    }
+    queue: {
+      name: "cpu_queue"
+    }
+  }
+}
+```
 
 ### Worker Example
+Similarly a worker is configured to choose from CPU/GPU work:
+```
+redis_shard_backplane_config: {
+  provisioned_queues: {
+    queue: {
+      name: "gpu_queue"
+      platform: {
+        property: {
+          name: "gpu_tag"
+        }
+      }
+    }
+    queue: {
+      name: "cpu_queue"
+    }
+  }
+}
+```

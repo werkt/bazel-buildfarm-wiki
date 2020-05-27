@@ -48,3 +48,12 @@ redis_shard_backplane_config: {
   }
 }
 ```
+
+### Tagging a Worker for GPU work
+```
+platform: {
+    property: {
+        name: "gpu_tag"
+    }
+}
+```

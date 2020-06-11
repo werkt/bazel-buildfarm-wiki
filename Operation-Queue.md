@@ -15,19 +15,19 @@ Provision queues are intended to represent particular operations that should onl
 In this example the scheduler is configured to separate CPU/GPU work:
 ```
 redis_shard_backplane_config: {
-    provisioned_queues: {
-      queues: [
-        {
-          name: "gpu_queue"
-          platform: {
-            properties: [{name: "gpu"value: "1"}]
-          }
-        },
-        {
-            name: "cpu_queue"
+  provisioned_queues: {
+    queues: [
+      {
+        name: "gpu_queue"
+        platform: {
+          properties: [{name: "gpu"value: "1"}]
         }
-      ]
-    }
+      },
+      {
+          name: "cpu_queue"
+      }
+    ]
+  }
 }
 ```
 
@@ -35,19 +35,19 @@ redis_shard_backplane_config: {
 Similarly a worker is configured to choose from CPU/GPU work:
 ```
 redis_shard_backplane_config: {
-    provisioned_queues: {
-      queues: [
-        {
-          name: "gpu_queue"
-          platform: {
-            properties: [{name: "gpu"value: "1"}]
-          }
-        },
-        {
-            name: "cpu_queue"
+  provisioned_queues: {
+    queues: [
+      {
+        name: "gpu_queue"
+        platform: {
+          properties: [{name: "gpu"value: "1"}]
         }
-      ]
-    }
+      },
+      {
+          name: "cpu_queue"
+      }
+    ]
+  }
 }
 ```
 

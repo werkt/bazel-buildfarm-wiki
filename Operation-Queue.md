@@ -18,7 +18,7 @@ redis_shard_backplane_config: {
       name: "gpu_queue"
       platform: {
         property: {
-          name: "gpu_tag"
+          name: "gpu"
         }
       }
     }
@@ -38,7 +38,7 @@ redis_shard_backplane_config: {
       name: "gpu_queue"
       platform: {
         property: {
-          name: "gpu_tag"
+          name: "gpu"
         }
       }
     }
@@ -56,7 +56,7 @@ An operation queue consists of multiple provisioned queues in which the order di
 ```
 platform: {
     property: {
-        name: "gpu_tag"
+        name: "gpu"
     }
 }
 ```

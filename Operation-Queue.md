@@ -63,3 +63,6 @@ platform: {
 
 ### Default Configuration
 If your configuration file does not specify any provisioned queues, buildfarm will automatically provide a default queue will full eligibility on all operations. This will ensure the expected behavior for the paradigm in which all work is put on the same queue.
+
+### Bazel Perspective
+Bazel targets can pass these platform properties to buildfarm via [exec_properties](https://docs.bazel.build/versions/master/be/common-definitions.html#common.exec_properties).

@@ -1,7 +1,7 @@
 # Operation Queue
 This section discusses the purpose of the Operation Queue, and how it can be customized depending on the type of operations you wish to support and distribute among workers.
 
-Elements are removed from the prequeue and added to the operation queue.  
+When elements are removed from the prequeue, they are added to the operation queue.  
 The operation queue is used to hold operations for workers to perform.  
 
 ## Working with different platform requirements 

@@ -85,3 +85,13 @@ INFO: 2 processes: 2 remote.
 ```
 
 That `2 remote` indicates that your compile and link ran remotely. Congratulations, you just build something through remote execution!
+
+## Buildfarm Manager
+
+You can now easily launch a new Buildfarm cluster locally or in AWS using an open sourced <a href="https://github.com/80degreeswest/bfmgr">Buildfarm Manager</a>.
+
+```
+wget https://github.com/80degreeswest/bfmgr/releases/download/1.0.7/bfmgr-1.0.7.jar
+java -jar bfmgr-1.0.7.jar
+Navigate to http://localhost
+```

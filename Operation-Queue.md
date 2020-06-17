@@ -20,7 +20,7 @@ redis_shard_backplane_config: {
       {
         name: "gpu_queue"
         platform: {
-          properties: [{name: "gpu"value: "1"}]
+          properties: [{name: "gpu" value: "1"}]
         }
       },
       {
@@ -40,7 +40,7 @@ redis_shard_backplane_config: {
       {
         name: "gpu_queue"
         platform: {
-          properties: [{name: "gpu"value: "1"}]
+          properties: [{name: "gpu" value: "1"}]
         }
       },
       {
@@ -57,7 +57,7 @@ An operation queue consists of multiple provisioned queues in which the order di
 ### Tagging a Worker for GPU work
 ```
 platform: {
-    properties: [{name: "gpu"value: "1"}]
+    properties: [{name: "gpu" value: "1"}]
 }
 ```
 

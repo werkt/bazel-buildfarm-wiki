@@ -11,7 +11,7 @@ Workers of all types throughout buildfarm are responsible for presenting executi
 
 ## Operation Queue
 
-Operation Queue workers are responsible for taking operations from the Memory OperationQueue service and reporting their contents via external CAS and AC services. Executions are the only driving force for their CAS FileCache.
+Operation Queue workers are responsible for taking operations from the Memory OperationQueue service and reporting their contents via external CAS and AC services. Executions are the only driving force for their CAS FileCache. For more details on configuring the operation queue, [see here](https://github.com/bazelbuild/bazel-buildfarm/wiki/Operation-Queue)
 
 ## Shard
 

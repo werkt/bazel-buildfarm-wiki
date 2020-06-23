@@ -41,7 +41,7 @@ Input Fetch is a superscalar stage responsible for downloading the QueuedOperati
 
 ### Execution
 
-Execution is a superscalar stage which initiates operation executions, applying any ExecutionPolicies. The operation transitions to the EXECUTING state when it reaches this stage. After spawning the process, it intercepts writes to stdout and stderr, and will terminate the process if it runs longer than its Action specified timeout.
+Execution is a superscalar stage which initiates operation executions, applying any ExecutionPolicies. The operation transitions to the EXECUTING state when it reaches this stage. After spawning the process, it intercepts writes to stdout and stderr, and will terminate the process if it runs longer than its Action specified timeout. Its configured concurrency is available in the worker config as `execute_stage_width`.
 
 ### Report Result
 

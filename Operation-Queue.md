@@ -56,6 +56,8 @@ An operation queue consists of multiple provisioned queues in which the order di
 
 ### Tagging a Worker for GPU work
 ```
+omit_from_cas: true
+
 platform: {
     properties: [{name: "gpu" value: "1"}]
 }

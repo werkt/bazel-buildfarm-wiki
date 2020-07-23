@@ -1,11 +1,10 @@
-# Operation Queue
-This section discusses the purpose of the Operation Queue, and how it can be customized depending on the type of operations you wish to support and distribute among workers.
+# Shard Platform Operation Queue
+This section discusses the purpose of the Shard Platform Operation Queue, and how it can be customized depending on the type of operations you wish to support and efficiently distribute among workers.
 
-When elements are removed from the prequeue, they are added to the operation queue.  
-The operation queue is used to hold operations for workers to perform.  
+Some time after an Action execute request occurs, the longrunning operation it corresponds to will enter the QUEUED state, and will receive an update to that effect on the operation response stream. An operation in the QUEUED state is present in an Operation Queue, which holds the operations in sequence until a worker is available to execute it.
 
 ## Working with different platform requirements 
-Some operations may require different platform requirements in order to execute.
+Some operations' Actions may have specific platform requirements in order to execute.
 Likewise, specific workers may only want to take on work that they deem eligible.
 To solve this, the operation queue can be customized to divide work into separate provisioned queues so that specific workers can choose which queue to read from.  
 

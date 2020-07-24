@@ -37,11 +37,11 @@ The Match stage is unique in that it claims a slot in the Input Fetch stage prio
 
 ### Input Fetch
 
-Input Fetch is a superscalar stage responsible for downloading the QueuedOperation from the CAS, and creating the execution directory for the Operation. This is the worker ingress bandwidth, and likely the disk IO write, consuming stage. Its configured concurrency is available in the worker config as `input_fetch_stage_width`.
+Input Fetch is a superscalar stage responsible for downloading the QueuedOperation from the CAS, and creating the execution directory for the Operation. This is the worker ingress bandwidth, and likely the disk IO write, consuming stage. Its configured concurrency is available in the worker config as `input_fetch_stage_width`. The ownership of output directories is configurable with [exec_owner].
 
 ### Execution
 
-Execution is a superscalar stage which initiates operation executions, applying any ExecutionPolicies. The operation transitions to the EXECUTING state when it reaches this stage. After spawning the process, it intercepts writes to stdout and stderr, and will terminate the process if it runs longer than its Action specified timeout. Its configured concurrency is available in the worker config as `execute_stage_width`.
+Execution is a superscalar stage which initiates operation executions, applying any ExecutionPolicies. The operation transitions to the EXECUTING state when it reaches this stage. After spawning the process, it intercepts writes to stdout and stderr, and will terminate the process if it runs longer than its Action specified timeout. Its configured concurrency is available in the worker config as `execute_stage_width`. [Execution Limiting] is available as a configuration option under cgroups, if supported.
 
 ### Report Result
 

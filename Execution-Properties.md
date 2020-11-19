@@ -6,5 +6,4 @@ Buildfarm supports the following `execution_properties`:
 
 `choose-queue`: put an action directly on the specified queue (queue names must be known based on buildfarm configuration) 
 
-`env-vars`:  
-TODO
+`env-vars`: TODO

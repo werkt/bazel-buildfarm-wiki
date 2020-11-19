@@ -1,4 +1,4 @@
-Buildfarm supports the following `execution_properties`:
+Buildfarm supports the following `execution_properties`.
 
 `min-cores`: the minimum number of cores needed by the action. Adjusted to >= 1
 

@@ -1,10 +1,10 @@
 Buildfarm supports the following `execution_properties`:
 
-`min-cores`:  
+`min-cores`: the minimum number of cores needed by the action
 
-`max-cores`:  
+`max-cores`: the maximum number of cores needed by the action
 
-`choose-queue`:  
+`choose-queue`: put an action directly on the specified queue (queue names must be known based on buildfarm configuration) 
 
 `env-vars`:  
 TODO

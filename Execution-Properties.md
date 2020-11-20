@@ -1,4 +1,5 @@
-Buildfarm supports the following `execution_properties`.  New execution_properties may be added in buildfarm config in order support matching to different worker types.
+Buildfarm supports the following `execution_properties`.  
+New execution_properties may be added in buildfarm config in order support matching to different worker types.
 
 ### min-cores
 the minimum number of cores needed by the action.  Should be set to >= 1

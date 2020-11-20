@@ -1,5 +1,5 @@
 Buildfarm supports the following [execution properties](https://docs.bazel.build/versions/master/be/common-definitions.html#common.exec_properties).  
-New execution_properties may be added in buildfarm config in order support matching to different worker types.
+New properties may be added into buildfarm configuration to aid in queue matching (see Platform Queues).
 
 ### min-cores
 the minimum number of cores needed by the action.  Should be set to >= 1

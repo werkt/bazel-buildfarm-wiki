@@ -5,7 +5,7 @@ Custom properties can also be added to buildfarm's configuration in order to fac
 **description:** the minimum number of cores needed by the action.  Should be set to >= 1
 
 ### max-cores
-**description:**the maximum number of cores needed by the action. Buildfarm will enforce a max.
+**description:** the maximum number of cores needed by the action. Buildfarm will enforce a max.
 
 ### choose-queue
 **description:** put an action directly on the specified queue (queue names must be known based on buildfarm configuration).  

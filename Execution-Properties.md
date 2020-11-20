@@ -2,10 +2,10 @@ Buildfarm supports the following [execution properties](https://docs.bazel.build
 Custom properties can also be added to buildfarm's configuration in order to facilitate queue matching (see [Platform Queues](https://github.com/bazelbuild/bazel-buildfarm/wiki/Shard-Platform-Operation-Queue)).
 
 ### min-cores
-**description:** the minimum number of cores needed by the action.  Should be set to >= 1
+**description:** the minimum number of cores needed by an action.  Should be set to >= 1
 
 ### max-cores
-**description:** the maximum number of cores needed by the action. Buildfarm will enforce a max.
+**description:** the maximum number of cores needed by an action. Buildfarm will enforce a max.
 
 ### choose-queue
 **description:** put an action directly on the specified queue (queue names must be known based on buildfarm configuration).  

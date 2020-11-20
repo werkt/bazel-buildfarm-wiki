@@ -1,7 +1,7 @@
 Buildfarm supports the following `execution_properties`.  New execution_properties may be added in buildfarm config in order support matching to different worker types.
 
 ### min-cores
-the minimum number of cores needed by the action.  Sould be set to >= 1
+the minimum number of cores needed by the action.  Should be set to >= 1
 
 ### max-cores
 the maximum number of cores needed by the action. Buildfarm can enforce a max.

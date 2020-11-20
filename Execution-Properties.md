@@ -1,5 +1,4 @@
 Buildfarm supports the following [execution properties](https://docs.bazel.build/versions/master/be/common-definitions.html#common.exec_properties).  
-Some of them are intended
 New execution_properties may be added in buildfarm config in order support matching to different worker types.
 
 ### min-cores

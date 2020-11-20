@@ -14,3 +14,50 @@ Custom properties can also be added to buildfarm's configuration in order to fac
 
 ### `env-vars`
 **description:** ensure the action is executed with additional environment variables.  These variables are applied last in the order given.
+
+**use case:**
+Users may need to set additional environment variables through `exec_properties`.  
+Changing code or using `--action_env` may be less feasible than specifying them through these exec_properties.  
+Additionally, the values of their environment variables may need to be influenced by buildfarm decisions.  
+
+For example, pytorch tests can still see the underlying hardware through `/proc/cpuinfo`.  
+Despite being given 1 core, they see all of the cpus and decide to spawn that many threads. This essentially starves them and gives poor test performance (we may spoof cpuinfo in the future).  Another solution is to use env vars `OMP_NUM_THREADS` and `MKL_NUM_THREADS`.  This could be done in code, but we can't trust that developers will do it consistently or keep it in sync with `min-cores` / `max-cores`.  Allowing these environment variables to be passed the same way as the core settings would be ideal.  
+
+**Standard Example:**  
+This test will succeed when env var TESTVAR is foobar, and fail otherwise.
+```
+#!/bin/bash
+[ "$TESTVAR" = "foobar" ]
+```
+```
+./bazel test  \
+--remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
+//code/tools/bad_tests/env_test:main
+FAIL
+```
+
+```
+./bazel test --remote_default_exec_properties='env-vars={"TESTVAR": "foobar"}' \
+ --remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
+//code/tools/bad_tests/env_test:main
+PASS
+```
+**Template Example:**
+If you give a range of cores, buildfarm has the authority to decide how many your operation actually claims.  
+You can let buildfarm resolve this value for you (via [mustache](https://mustache.github.io/)).  
+```
+#!/bin/bash
+[ "$MKL_NUM_THREADS" = "1" ]
+```
+```
+./bazel test  \
+--remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
+//code/tools/bad_tests/env_test:main
+FAIL
+```
+```
+./bazel test  \
+--remote_default_exec_properties='env-vars="MKL_NUM_THREADS": "{{limits.cpu.claimed}}"' \
+--remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results //code/tools/bad_tests/env_test:main
+PASS
+```

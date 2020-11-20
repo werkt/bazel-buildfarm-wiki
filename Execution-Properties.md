@@ -32,14 +32,14 @@ This test will succeed when env var TESTVAR is foobar, and fail otherwise.
 ```
 ./bazel test  \
 --remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
-//code/tools/bad_tests/env_test:main
+//env_test:main
 FAIL
 ```
 
 ```
 ./bazel test --remote_default_exec_properties='env-vars={"TESTVAR": "foobar"}' \
  --remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
-//code/tools/bad_tests/env_test:main
+//env_test:main
 PASS
 ```
 **Template Example:**
@@ -52,12 +52,13 @@ You can let buildfarm resolve this value for you (via [mustache](https://mustach
 ```
 ./bazel test  \
 --remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
-//code/tools/bad_tests/env_test:main
+//env_test:main
 FAIL
 ```
 ```
 ./bazel test  \
 --remote_default_exec_properties='env-vars="MKL_NUM_THREADS": "{{limits.cpu.claimed}}"' \
---remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results //code/tools/bad_tests/env_test:main
+--remote_executor=grpc://127.0.0.1:8980 --noremote_accept_cached  --nocache_test_results \
+//env_test:main
 PASS
 ```

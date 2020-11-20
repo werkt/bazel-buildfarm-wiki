@@ -1,6 +1,7 @@
 Buildfarm supports the following `execution_properties`.
 
-`min-cores`: the minimum number of cores needed by the action. Adjusted to >= 1
+`min-cores`: the minimum number of cores needed by the action
+Buildfarm may enforce a range by either erroring or self-adjusting to >= 1
 
 `max-cores`: the maximum number of cores needed by the action. Buildfarm can enforce a max.
 

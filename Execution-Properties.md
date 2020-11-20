@@ -61,3 +61,8 @@ FAIL
 //env_test:main
 PASS
 ```
+
+**available templates:**
+`{{limits.cpu.min}}`: what buildfarm has decided is a valid min core count for the action
+`{{limits.cpu.max}}`: what buildfarm has decided is a valid max core count for the action
+`{{limits.cpu.claimed}}`: buildfarm's decision on how many cores your action should claim  

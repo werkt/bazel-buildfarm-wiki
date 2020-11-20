@@ -43,8 +43,7 @@ FAIL
 PASS
 ```
 **Template Example:**
-If you give a range of cores, buildfarm has the authority to decide how many your operation actually claims.  
-You can let buildfarm resolve this value for you (via [mustache](https://mustache.github.io/)).  
+If you give a range of cores, buildfarm has the authority to decide how many your operation actually claims.  You can let buildfarm resolve this value for you (via [mustache](https://mustache.github.io/)).  
 ```
 #!/bin/bash
 [ "$MKL_NUM_THREADS" = "1" ]

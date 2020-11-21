@@ -66,3 +66,10 @@ PASS
 `{{limits.cpu.min}}`: what buildfarm has decided is a valid min core count for the action.  
 `{{limits.cpu.max}}`: what buildfarm has decided is a valid max core count for the action.  
 `{{limits.cpu.claimed}}`: buildfarm's decision on how many cores your action should claim.  
+
+### `debug-before-execution` (not implemented)
+**description:** Fails the execution with important debug information on how the execution will be performed.
+
+### `debug-after-execution` (not implemented)
+**description:** Runs the execution, but fails it afterward with important debug information on how the execution was performed.
+

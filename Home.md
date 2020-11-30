@@ -1,5 +1,3 @@
-# User Guide
-
 Buildfarm is a service software stack which presents an implementation of the [Remote Execution API](https://github.com/bazelbuild/remote-apis). This means it can be used by any client of that API to retain content ([[ContentAddressableStorage]]), cache ActionResults by a key ([[ActionCache]]), and execute actions asynchronously ([[Execution]]).
 
 Buildfarm is cross-platform has been heavily tested with bazel as a client.

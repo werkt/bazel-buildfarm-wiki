@@ -4,8 +4,6 @@ Bazel Buildfarm is a service software stack which presents an implementation of 
 
 This documentation is intended as a comprehensive and ongoing description of its architecture, features, functionality, and operation, as well as a guide to a smoothly running install of the software. Familiarity with the Remote Execution API is expected, and references will be provided to it as needed.
 
-_This wiki is a work in progress, and parts of it may still be under construction._
-
 ## [[Quick Start]]
 ## [[Architecture]]
 ## [[General Features]]

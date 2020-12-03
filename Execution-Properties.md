@@ -20,7 +20,7 @@ This is relevant for performance and stability of the worker as multiple tests s
 ### `choose-queue`
 **description:** place the action directly on the chosen queue (queue name must be known based on buildfarm configuration).  
 
-**use case:** Other remote execution solutions have slightly different paradigms on deciding where actions go. They leverage `execution_properties` for selecting a "pool" of machines to send the action. We sort of have a pool of workers waiting on particular queues. For parity with this concept, we support this execution property which will take precedence in deciding queue eligibility.
+**use case:** Other remote execution solutions have slightly different paradigms on deciding where actions go. They leverage execution properties for selecting a "pool" of machines to send the action. We sort of have a pool of workers waiting on particular queues. For parity with this concept, we support this execution property which will take precedence in deciding queue eligibility.
 
 ## Extending Execution:  
 

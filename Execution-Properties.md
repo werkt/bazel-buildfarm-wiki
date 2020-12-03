@@ -1,5 +1,7 @@
 Buildfarm supports the following [execution properties](https://docs.bazel.build/versions/master/be/common-definitions.html#common.exec_properties).  
 Custom properties can also be added to buildfarm's configuration in order to facilitate queue matching (see [Platform Queues](https://github.com/bazelbuild/bazel-buildfarm/wiki/Shard-Platform-Operation-Queue)).
+Please note that not all execution properties may be relevant to you or the best option depending on your client.  
+For example, some execution_properties were created to facilitate behavior before bazel had a better solution in place.
 
 ### `min-cores`
 **description:** the minimum number of cores needed by an action.  Should be set to >= 1

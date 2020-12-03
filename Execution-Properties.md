@@ -3,12 +3,15 @@ Users can customize buildfarm to understand additional properties that are not l
 
 
 ### `min-cores`
-**description:** the minimum number of cores needed by an action.  Should be set to >= 1
+**description:** the minimum number of cores needed by an action.  Should be set to >= 1  
 Workers and queues can be configured to behave differently based on this property.
 
 ### `max-cores`
-**description:** the maximum number of cores needed by an action. Buildfarm will enforce a max.
+**description:** the maximum number of cores needed by an action. Buildfarm will enforce a max.  
 Workers and queues can be configured to behave differently based on this property.
+
+**use case:** very often you want unit tests (or all actions in general) to be constrained to a core limit via cgroups.  
+This is relevant for performance and stability of the worker as multiple tests share the same hardware as the worker.
 
 ### `choose-queue`
 **description:** place the action directly on the chosen queue (queue name must be known based on buildfarm configuration).  

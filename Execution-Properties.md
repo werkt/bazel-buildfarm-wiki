@@ -3,9 +3,11 @@ This page contains all of the [execution properties](https://docs.bazel.build/ve
 
 ### `min-cores`
 **description:** the minimum number of cores needed by an action.  Should be set to >= 1
+Workers and queues can be configured to behave differently based on this property.
 
 ### `max-cores`
 **description:** the maximum number of cores needed by an action. Buildfarm will enforce a max.
+Workers and queues can be configured to behave differently based on this property.
 
 ### `choose-queue`
 **description:** place the action directly on the chosen queue (queue name must be known based on buildfarm configuration).  

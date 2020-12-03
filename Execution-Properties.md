@@ -2,6 +2,8 @@ This page contains all of the [execution properties](https://docs.bazel.build/ve
 Users can customize buildfarm to understand additional properties that are not listed here.
 
 
+## Core Selection:  
+
 ### `min-cores`
 **description:** the minimum number of cores needed by an action.  Should be set to >= 1  
 Workers and queues can be configured to behave differently based on this property.
@@ -13,10 +15,14 @@ Workers and queues can be configured to behave differently based on this propert
 **use case:** very often you want unit tests (or all actions in general) to be constrained to a core limit via cgroups.  
 This is relevant for performance and stability of the worker as multiple tests share the same hardware as the worker.
 
+## Queue / Pool Selection:  
+
 ### `choose-queue`
 **description:** place the action directly on the chosen queue (queue name must be known based on buildfarm configuration).  
 
 **use case:** Other remote execution solutions have slightly different paradigms on deciding where actions go. They leverage `execution_properties` for selecting a "pool" of machines to send the action. We sort of have a pool of workers waiting on particular queues. For parity with this concept, we support this execution property which will take precedence in deciding queue eligibility.
+
+## Extending Execution:  
 
 ### `env-vars`
 **description:** ensure the action is executed with additional environment variables.  These variables are applied last in the order given.

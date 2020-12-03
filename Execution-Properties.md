@@ -2,6 +2,8 @@ This page contains all of the [execution properties](https://docs.bazel.build/ve
 Custom properties can also be added to buildfarm's configuration in order to facilitate queue matching (see [Platform Queues](https://github.com/bazelbuild/bazel-buildfarm/wiki/Shard-Platform-Operation-Queue)).
 Please note that not all execution properties may be relevant to you or the best option depending on your build client.  
 For example, some execution properties were created to facilitate behavior before bazel had a better solution in place.
+Buildfarm's configuration for accepting execution properties can be strict or flexible.  Buildfarm has been used alongside other remote execution tools and allowing increased flexibility on these properties is necessary so the solutions can coexist for the same targets. 
+
 
 ### `min-cores`
 **description:** the minimum number of cores needed by an action.  Should be set to >= 1

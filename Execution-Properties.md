@@ -32,7 +32,8 @@ Users may need to set additional environment variables through `exec_properties`
 Changing code or using `--action_env` may be less feasible than specifying them through these exec_properties.  
 Additionally, the values of their environment variables may need to be influenced by buildfarm decisions.  
 
-For example, pytorch tests can still see the underlying hardware through `/proc/cpuinfo`.  
+**example:**  
+pytorch tests can still see the underlying hardware through `/proc/cpuinfo`.  
 Despite being given 1 core, they see all of the cpus and decide to spawn that many threads. This essentially starves them and gives poor test performance (we may spoof cpuinfo in the future).  Another solution is to use env vars `OMP_NUM_THREADS` and `MKL_NUM_THREADS`.  This could be done in code, but we can't trust that developers will do it consistently or keep it in sync with `min-cores` / `max-cores`.  Allowing these environment variables to be passed the same way as the core settings would be ideal.  
 
 **Standard Example:**  

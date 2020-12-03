@@ -85,7 +85,7 @@ PASS
 ## Debugging Execution:  
 
 ### `debug-before-execution` (not implemented)
-**description:** Fails the execution with important debug information on how the execution will be performed.
+**description:** Fails the execution with important debug information on how the execution will be performed.  
 **use case:** Sometimes you want to know the exact execution context and cli that the action is going to be run with.  This can help any situation where local action behavior seems different than remote action behavior.
 
 ### `debug-after-execution` (not implemented)

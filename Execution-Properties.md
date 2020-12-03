@@ -24,8 +24,11 @@ This is relevant for performance and stability of the worker as multiple tests s
 
 ## Extending Execution:  
 
-### `env-vars`
-**description:** ensure the action is executed with additional environment variables.  These variables are applied last in the order given.
+### `env-var` / `env-vars`
+**description:** ensure the action is executed with additional environment variables.  These variables are applied last in the order given. 
+ 
+`env-var` expects a single key/value like `--remote_default_exec_properties=env-var:FOO=VALUE`  
+`env-vars` expects a key/json like `--remote_default_exec_properties=env-vars='{"FOO": "VALUE","FOO2": "VALUE2"}'`
 
 **use case:**
 Users may need to set additional environment variables through `exec_properties`.  
@@ -78,6 +81,8 @@ PASS
 `{{limits.cpu.min}}`: what buildfarm has decided is a valid min core count for the action.  
 `{{limits.cpu.max}}`: what buildfarm has decided is a valid max core count for the action.  
 `{{limits.cpu.claimed}}`: buildfarm's decision on how many cores your action should claim.  
+
+## Debugging Execution:  
 
 ### `debug-before-execution` (not implemented)
 **description:** Fails the execution with important debug information on how the execution will be performed.

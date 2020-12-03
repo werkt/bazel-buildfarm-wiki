@@ -1,5 +1,5 @@
 This page contains all of the [execution properties](https://docs.bazel.build/versions/master/be/common-definitions.html#common.exec_properties) supported by Buildfarm.  
-Users can customize buildfarm to understand custom properties as well.
+Users can customize buildfarm to understand additional properties that are not listed here.
 
 
 ### `min-cores`

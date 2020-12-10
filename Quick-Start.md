@@ -91,7 +91,8 @@ That `2 remote` indicates that your compile and link ran remotely. Congratulatio
 You can now easily launch a new Buildfarm cluster locally or in AWS using an open sourced <a href="https://github.com/80degreeswest/bfmgr">Buildfarm Manager</a>.
 
 ```
-wget https://github.com/80degreeswest/bfmgr/releases/download/1.0.7/bfmgr-1.0.7.jar
-java -jar bfmgr-1.0.7.jar
+rel=1.0.14
+wget https://github.com/80degreeswest/bfmgr/releases/download/$rel/bfmgr-$rel.jar
+java -jar bfmgr-$rel.jar
 Navigate to http://localhost
 ```

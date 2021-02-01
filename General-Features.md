@@ -12,4 +12,4 @@ Most notably, buildfarm has universal support for:
 Bazel Client Feature Usage:
 
 ## [Fetch API](https://docs.bazel.build/versions/master/command-line-reference.html#flag--experimental_remote_downloader) - [Planned](https://github.com/bazelbuild/bazel-buildfarm/pull/605)
-## [Builds Without The Bytes](https://github.com/bazelbuild/bazel/issues/6862) - [[READ THIS]]
+## [Builds Without The Bytes](https://github.com/bazelbuild/bazel/issues/6862) - READ THIS: [[Builds Without The Bytes]]

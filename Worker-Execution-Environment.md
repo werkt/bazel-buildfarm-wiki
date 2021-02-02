@@ -105,14 +105,13 @@ Be sure to substitute the `sha256:<sha256sum>` with your content from above.
 Next we will create a BUILD file to create our target image. We will use the shard variant here, but the operationqueue worker (with supporting server execution) will work as well. The content of the BUILD file should be:
 
 ```
-load("@io_bazel_rules_docker//container:container.bzl", "container_image")
+load("@io_bazel_rules_docker//java:image.bzl", "java_image")
 
 java_image(
     name = "buildfarm-shard-worker-ubuntu20-java14",
     base = "@ubuntu20_java14_image_base//image",
-    files = [
-        "@build_buildfarm//src/main/java/build/buildfarm:buildfarm-shard-worker_deploy.jar",
-    ],
+    deps = ["//src/main/java/build/buildfarm:buildfarm-shard-worker"],
+    main_class = "build.buildfarm.worker.shard.Worker",
 )
 ```
 

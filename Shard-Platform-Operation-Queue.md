@@ -10,7 +10,7 @@ To solve this, the operation queue can be customized to divide work into separat
 
 Provision queues are intended to represent particular operations that should only be processed by particular workers. An example use case for this would be to have two dedicated provision queues for CPU and GPU operations. CPU/GPU requirements would be determined through the [remote api's command platform properties](https://github.com/bazelbuild/remote-apis/blob/86c040d03101654a949539151d32e22dfea30d62/build/bazel/remote/execution/v2/remote_execution.proto#L595). We designate provision queues to have a set of "required provisions" (which match the platform properties). This allows the scheduler to distribute operations by their properties and allows workers to dequeue from particular queues.
 
-If your configuration file does not specify any provisioned queues, buildfarm will automatically provide a default queue will full eligibility on all operations.
+If your configuration file does not specify any provisioned queues, buildfarm will automatically provide a default queue with full eligibility on all operations.
 This will ensure the expected behavior for the paradigm in which all work is put on the same queue.
 
 ### Server Example
@@ -56,7 +56,7 @@ redis_shard_backplane_config: {
 }
 ```
 
-In addition to the queue declaration, the worker must specify from which queue tasks are obtained (else the worker process will refuse to start):
+In addition to the queue declaration, the worker must specify from which queue tasks are obtained (otherwise the worker process will refuse to start):
 
 ```
 omit_from_cas: true
@@ -73,7 +73,7 @@ Since operation queues consist of multiple provisioned queues in which the order
 
 Note: make sure that all workers can communicate with each other before trying these examples
 
-Note: the parameter `omit_from_cas` can help improve cache performance and is optional.
+Note: the parameter `omit_from_cas` is optional, and is specified here to ensure our gpu workers do not act as a CAS shard.
 
 ### Bazel Perspective
 
